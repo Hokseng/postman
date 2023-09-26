@@ -1,0 +1,723 @@
+{
+	"info": {
+		"_postman_id": "8154a5a6-22b3-48cd-8bd1-65c6393220f5",
+		"name": "Payment API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27272653-8154a5a6-22b3-48cd-8bd1-65c6393220f5"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "payment",
+					"item": [
+						{
+							"name": "card",
+							"item": [
+								{
+									"name": "{cardId}",
+									"item": [
+										{
+											"name": "Retrieve a credit card by its ID.",
+											"id": "a14370e1-d866-4b49-b506-219682d5a3e0",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/payment/card/:cardId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"payment",
+														"card",
+														":cardId"
+													],
+													"variable": [
+														{
+															"id": "09c807e1-45a9-405d-889b-db0eeac115de",
+															"key": "cardId",
+															"value": "<uuid>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "fdedae54-1e7d-4b45-b20c-e8a606c4a95a",
+													"name": "Credit card details retrieved successfully",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/payment/card/:cardId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"payment",
+																"card",
+																":cardId"
+															],
+															"variable": [
+																{
+																	"id": "09c807e1-45a9-405d-889b-db0eeac115de",
+																	"key": "cardId",
+																	"value": "<uuid>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"cardId\": \"<uuid>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<date>\",\n  \"nameOnCard\": \"<string>\"\n}"
+												},
+												{
+													"id": "88173973-31e8-4b9e-95f9-2893f95a3eed",
+													"name": "Credit card not found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/payment/card/:cardId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"payment",
+																"card",
+																":cardId"
+															],
+															"variable": [
+																{
+																	"id": "09c807e1-45a9-405d-889b-db0eeac115de",
+																	"key": "cardId",
+																	"value": "<uuid>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": null
+												}
+											]
+										},
+										{
+											"name": "Update an existing credit card",
+											"id": "f513e782-27f2-4fa7-90ce-06ba86943666",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"cardId\": \"<uuid>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<date>\",\n  \"nameOnCard\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/payment/card/:cardId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"payment",
+														"card",
+														":cardId"
+													],
+													"variable": [
+														{
+															"id": "948e651b-9380-450e-a070-194721d8e623",
+															"key": "cardId",
+															"value": "<uuid>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "ba9d5518-a03f-436c-bbe3-9e9eab0c95ed",
+													"name": "Credit card updated successfully.",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"cardId\": \"<uuid>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<date>\",\n  \"nameOnCard\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/payment/card/:cardId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"payment",
+																"card",
+																":cardId"
+															],
+															"variable": [
+																{
+																	"id": "948e651b-9380-450e-a070-194721d8e623",
+																	"key": "cardId",
+																	"value": "<uuid>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": null
+												},
+												{
+													"id": "e020754d-cdd7-45a2-be25-aae26ef4cd94",
+													"name": "Bad request.",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"cardId\": \"<uuid>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<date>\",\n  \"nameOnCard\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/payment/card/:cardId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"payment",
+																"card",
+																":cardId"
+															],
+															"variable": [
+																{
+																	"id": "948e651b-9380-450e-a070-194721d8e623",
+																	"key": "cardId",
+																	"value": "<uuid>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": null
+												}
+											]
+										},
+										{
+											"name": "Remove a credit card",
+											"id": "69a81015-2e65-49d4-8a3a-d44f8070f97f",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/v1/payment/card/:cardId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"payment",
+														"card",
+														":cardId"
+													],
+													"variable": [
+														{
+															"id": "d886f338-6d81-407b-8003-193df4ee257e",
+															"key": "cardId",
+															"value": "<uuid>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "97fd507b-de12-4c00-8303-22604f436f0f",
+													"name": "Credit card removed successfully",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/v1/payment/card/:cardId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"payment",
+																"card",
+																":cardId"
+															],
+															"variable": [
+																{
+																	"id": "d886f338-6d81-407b-8003-193df4ee257e",
+																	"key": "cardId",
+																	"value": "<uuid>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": null
+												},
+												{
+													"id": "9c522267-ccdd-4ca5-9d6f-2fe8f43e3bc8",
+													"name": "Credit card not found.",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/v1/payment/card/:cardId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"payment",
+																"card",
+																":cardId"
+															],
+															"variable": [
+																{
+																	"id": "d886f338-6d81-407b-8003-193df4ee257e",
+																	"key": "cardId",
+																	"value": "<uuid>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": null
+												}
+											]
+										}
+									],
+									"id": "4f2d1582-dd00-4aa0-9c0d-6a39c60c36a6"
+								},
+								{
+									"name": "Add a new credit card",
+									"id": "3a9be0af-b183-427c-bbac-c86522fb6d12",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"cardId\": \"<uuid>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<date>\",\n  \"nameOnCard\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/payment/card",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"payment",
+												"card"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "816a3833-b825-4183-b04d-2a510792dc8c",
+											"name": "Credit card added successfully.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"cardId\": \"<uuid>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<date>\",\n  \"nameOnCard\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/payment/card",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"payment",
+														"card"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"id": "33595bb8-711a-441d-aa9a-a3bd5358ea6b",
+											"name": "Bad request.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"cardId\": \"<uuid>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<date>\",\n  \"nameOnCard\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/payment/card",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"payment",
+														"card"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							],
+							"id": "e6afb5ec-15bb-4790-93c0-252191af9ce3"
+						},
+						{
+							"name": "submit",
+							"item": [
+								{
+									"name": "Make a payment",
+									"id": "3732fb96-22e3-4d10-8d64-1a2dba9bf864",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"paymentId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<dateTime>\",\n  \"cardId\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/payment/submit",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"payment",
+												"submit"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "3b45e514-3b19-41fc-84d1-ca1c04b0eb0d",
+											"name": "Payment made successfully.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"paymentId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<dateTime>\",\n  \"cardId\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/payment/submit",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"payment",
+														"submit"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"id": "c63f45ff-6aa2-4926-9e60-a05c8e3f664f",
+											"name": "Bad request.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"paymentId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"date\": \"<dateTime>\",\n  \"cardId\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/payment/submit",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"payment",
+														"submit"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							],
+							"id": "a0e72f21-ad2f-4873-aa42-727e38c4c76c"
+						},
+						{
+							"name": "history",
+							"item": [
+								{
+									"name": "Get payment history",
+									"id": "6c00e838-7fb3-4a42-b8a9-801eb86b5551",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/payment/history",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"payment",
+												"history"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "804a4664-fe35-4996-8bf9-c6aae6954e34",
+											"name": "Payment history retrieved successfully",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/payment/history",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"payment",
+														"history"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"paymentId\": \"<uuid>\",\n    \"amount\": \"<number>\",\n    \"date\": \"<dateTime>\",\n    \"cardId\": \"<uuid>\"\n  },\n  {\n    \"paymentId\": \"<uuid>\",\n    \"amount\": \"<number>\",\n    \"date\": \"<dateTime>\",\n    \"cardId\": \"<uuid>\"\n  }\n]"
+										}
+									]
+								}
+							],
+							"id": "465aae5b-6532-4e72-8df6-2c718acc7949"
+						}
+					],
+					"id": "a5aab825-757f-45c7-a61d-b85a95ea126d"
+				}
+			],
+			"id": "2bdde4f7-2e7a-480a-9645-612a8b190e8a"
+		}
+	],
+	"variable": [
+		{
+			"id": "e9416a07-5b95-4c28-81ef-95ee898bd38c",
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
