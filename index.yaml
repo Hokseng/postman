@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Payment API
+paths:
+  /v1/payment/card:
+    post:
+      summary: Add a new credit card
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditCard'
+      responses:
+        '201':
+          description: Credit card added successfully.
+        '400':
+          description: Bad request.
+  /v1/payment/card/{cardId}:       
+    get:
+      summary: Retrieve a credit card by its ID.
+      parameters:
+      - name: cardId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Credit card details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditCard'
+        '404':
+          description: Credit card not found
+    put:
+      summary: Update an existing credit card
+      parameters:
+        - in: path
+          name: cardId
+          required: true
+          schema:
+            type: string
+            format: uuid        
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditCard'
+      responses:
+        '200':
+          description: Credit card updated successfully.
+        '400':
+          description: Bad request.          
+    delete:
+      summary: Remove a credit card
+      parameters:
+        - in: path
+          name: cardId
+          required: true
+          schema:
+            type: string
+            format: uuid       
+      responses:
+        '204':
+          description: Credit card removed successfully
+        '404':
+          description: Credit card not found.
+  /v1/payment/submit:
+    post:
+      summary: Make a payment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '201':
+          description: Payment made successfully.
+        '400':
+          description: Bad request.
+  /v1/payment/history:
+    get:
+      summary: Get payment history
+      responses:
+        '200':
+          description: Payment history retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Payment'          
+components:
+  schemas:
+    CreditCard:
+      type: object
+      properties:
+        cardId:
+          type: string
+          format: uuid
+        cardNumber:
+          type: string
+        expiryDate:
+          type: string
+          format: date
+        nameOnCard:
+          type: string
+    Payment:
+      type: object
+      properties:
+        paymentId:
+          type: string
+          format: uuid
+        amount:
+          type: number
+        date:
+          type: string
+          format: date-time
+        cardId:
+          type: string
+          format: uuid
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - ApiKeyAuth: []        
